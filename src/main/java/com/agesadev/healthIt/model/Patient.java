@@ -1,7 +1,6 @@
 package com.agesadev.healthIt.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +12,6 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Patient {
     @Id
     private String patientIdentifier;
@@ -23,4 +21,6 @@ public class Patient {
     private String idNumber;
     private String location;
     private String phoneNumber;
+    private String dateOfBirth;
+    private String gender;
 }
