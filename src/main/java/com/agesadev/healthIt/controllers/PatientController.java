@@ -34,8 +34,9 @@ public class PatientController {
     }
 
     @PutMapping("/update/{patientIdentifier}")
-    public Patient updatePatient(@RequestBody Patient patient, @PathVariable String patientIdentifier) {
-        return patientService.updatePatient(patient, patientIdentifier);
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<Patient> updatePatient(@RequestBody Patient patient, @PathVariable String patientIdentifier) {
+        return new ResponseEntity<>(patientService.updatePatient(patient, patientIdentifier), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{patientIdentifier}")
@@ -44,4 +45,8 @@ public class PatientController {
         return ResponseEntity.ok("Patient with id " + patientIdentifier + " deleted successfully");
     }
 
+    @PostMapping("/search")
+    public Patient searchPatient(@RequestBody String identifier) {
+        return patientService.getPatientById(identifier);
+    }
 }

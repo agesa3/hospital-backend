@@ -24,8 +24,8 @@ public class PatientServiceImpl implements PatientService {
 
     private String generateIdentifier(Patient patient) {
         String randomNumbers = String.valueOf((int) (Math.random() * 1000));
-        String patientBirthCertNumber = patient.getBirthCertificate();
-        return randomNumbers + patientBirthCertNumber;
+        String patientNames = patient.getFirstName() + patient.getLastName();
+        return randomNumbers + patientNames;
     }
 
     @Override
